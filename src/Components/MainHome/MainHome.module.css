@@ -1,0 +1,109 @@
+.main {
+  background-color: #f0f2ed;
+  min-height: 800px;
+}
+
+.mainTitle {
+  animation-delay: 0.3s;
+  animation-duration: 1s;
+  color: #525258;
+  display: inline-block;
+  font-size: 16px;
+  letter-spacing: 0.03em;
+  line-height: 1.12;
+  margin-bottom: 11px;
+  padding-left: 13px;
+  position: relative;
+}
+.mainTitle::after {
+  background-color: #f50963;
+  content: "";
+  height: 37px;
+  left: 0;
+  position: absolute;
+  top: -2px;
+  width: 2px;
+}
+@media only screen and (min-width: 576px) and (max-width: 767px),
+  only screen and (min-width: 768px) and (max-width: 991px) {
+  .main {
+    min-height: 1000px;
+  }
+}
+
+.mainTitle2 {
+  font-size: 80px;
+  font-weight: 500;
+  margin-bottom: 45px;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  display: block;
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .mainTitle2 {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 575px) {
+  .mainTitle2 {
+    font-size: 40px;
+  }
+  .main {
+    min-height: 700px;
+  }
+  .MainImg {
+    height: auto;
+    width: 58%;
+  }
+}
+
+.shopBtn {
+  display: inline-block;
+  border: 1.5px solid #000;
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 7px 33px;
+  transition: 1 all;
+}
+.stopBtn_i {
+  transform: translateY(-0.5px);
+}
+.shopBtn:hover {
+  border: 1.5px solid #ffffff;
+  color: #fff;
+  background-color: #000;
+}
+.circleMain {
+  animation: tp-hotspot 3s cubic-bezier(0.4, 0, 1, 1) infinite;
+  animation-delay: 0s;
+  background-color: #fff;
+  border-radius: 50%;
+  height: 550px;
+  position: absolute;
+  right: -25%;
+  top: -30%;
+  width: 550px;
+}
+.mr40 {
+  margin-right: 40px;
+}
+.circleMain1 {
+  animation-delay: 1s;
+}
+@keyframes tp-hotspot {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(1.3);
+  }
+}
