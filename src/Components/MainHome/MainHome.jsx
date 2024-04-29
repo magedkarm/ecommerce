@@ -3,8 +3,8 @@ import style from "../MainHome/MainHome.module.css";
 import { Link } from "react-router-dom";
 export default function MainHome() {
   return (
-    <main className={style.main + ` d-flex align-items-end`}>
-      <div className="container  ">
+    <main className={style.main + ` d-flex align-items-end overflow-hidden `}>
+      <div className="container   ">
         <div className="row align-self-end">
           <div className="col-xl-6 col-lg-6">
             <div className="mainConten z-3 position-relative">
@@ -30,7 +30,7 @@ export default function MainHome() {
           <div className="col-xl-6 col-lg-6">
             <div
               className={
-                style.mr40 + " mainContent position-relative text-end z-1"
+                style.mr40 + " mainContent position-relative text-end z-1 "
               }
             >
               <span className={style.circleMain}></span>
