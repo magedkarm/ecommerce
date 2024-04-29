@@ -295,27 +295,41 @@ p {
   box-shadow: 0 30px 60px rgba(3, 4, 28, 0.1);
   padding: 50px 75px 55px;
 }
-.login__input-item:not(:last-child) {
+/* .login__input-item:not(:last-child) {
   margin-bottom: 20px;
-}
+} */
 
 .login__input input {
+  width: 400px;
   background: #fff;
   border: 1px solid #eaeaef;
   height: 60px;
   line-height: 60px;
   padding-left: 55px;
   padding-right: 50px;
+  margin-bottom: 20px;
 }
 .login__input input:focus {
   border-color: var(--tp-theme-1) !important;
   outline: 0px;
 }
 .login__input span {
-  left: 24px;
+  left: 22px;
   position: absolute;
-  top: 50%;
+  top: 40%;
   transform: translateY(calc(-50% - 3px));
+}
+
+
+.tp-btn{
+  background-color: var(--tp-theme-1);
+  font-size: 18px;
+  padding: 17px 30px;
+  color: var(--tp-common-white);
+  font-family: var(--tp-ff-space);
+}
+.tp-btn:hover {
+  background-color: var(--tp-common-black);
 }
 
 body {
