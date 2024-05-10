@@ -53,16 +53,16 @@ export default function Footer() {
                 </p>
                 <div className={style.footerSocial}>
                   <Link href="#">
-                    <i class="fa-brands fa-facebook-f"></i>
+                    <i className="fa-brands fa-facebook-f"></i>
                   </Link>
                   <Link href="#">
-                    <i class="fa-brands fa-twitter"></i>
+                    <i className="fa-brands fa-twitter"></i>
                   </Link>
                   <Link href="#">
-                    <i class="fa-brands fa-linkedin-in"></i>
+                    <i className="fa-brands fa-linkedin-in"></i>
                   </Link>
                   <Link href="#">
-                    <i class="fa-brands fa-youtube"></i>
+                    <i className="fa-brands fa-youtube"></i>
                   </Link>
                 </div>
               </div>

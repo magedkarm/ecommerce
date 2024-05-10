@@ -59,9 +59,9 @@ export default function MiniSlider() {
           modules={[Scrollbar]}
           className="mySwiper"
         >
-          {category.map((cat) => {
+          {category.map((cat, index) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={index}>
                 <div className="text-center">
                   <img className="img-fluid w-100" src={cat.img} alt="" />
                   <h3

@@ -1,0 +1,145 @@
+.titleTabBar {
+  font-size: 30px;
+  line-height: 1;
+  padding-left: 16px;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+}
+.titleTabBar::before {
+  background-color: #f50963;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 3px;
+}
+.UlTabBar ul li {
+  background-color: transparent;
+  padding-left: 10px;
+}
+.UlTabBar ul li button {
+  color: #525258;
+  font-size: 14px;
+  font-weight: 500;
+  padding-left: 5px;
+  padding-right: 5px;
+  position: relative;
+  transition: all 0.3s ease-out 0s;
+}
+.UlTabBar ul li button:hover {
+  color: #f50963;
+}
+.UlTabBar ul li button::after {
+  background-color: var(--tp-theme-1);
+  bottom: 1px;
+  content: "";
+  height: 2px;
+  left: auto;
+  position: absolute;
+  right: 0;
+  width: 0;
+  transition: all 0.3s ease-out 0s;
+}
+
+.UlTabBar .nav-pills .nav-item .nav-link.active {
+  background-color: transparent;
+  color: #f50963;
+}
+
+.UlTabBar .nav-pills .nav-item .nav-link.active::after {
+  width: 100%;
+  left: 0;
+  right: auto;
+}
+
+.productHiddenSection {
+  right: 10px;
+  top: 40px;
+  position: absolute;
+  transition: all 0.3s ease-out 0s;
+}
+
+.productHiddenSection button {
+  background-color: #ffffff;
+  margin-bottom: 12px;
+  font-size: 20px;
+  padding: 8px;
+  text-align: center;
+  border: 0;
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(100px);
+  transition: visibility 0.3s ease-out 0s, opacity 0.3s ease-out 0s,
+    transform 0.3s ease-out 0s;
+  transition: all 0.4s ease 0s;
+}
+.productHiddenSection button:hover {
+  background-color: #f50963;
+  color: #fff;
+}
+
+.productHiddenSection button:first-child {
+  transition-delay: 0s;
+}
+
+.productHiddenSection button:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.productHiddenSection button:nth-child(3) {
+  transition-delay: 0.15s;
+}
+.productImg .addCart {
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  visibility: none;
+  transform: translateY(100px);
+  transition: all 0.4s ease 0s;
+}
+.productImg .addCart button {
+  width: 100%;
+  border: none;
+  padding: 5px 0px;
+  background-color: #525258;
+  color: #ffffff;
+  transition: all 0.3s ease 0s;
+}
+.productImg .addCart:hover button {
+  background-color: #f50963;
+  color: #fff;
+}
+.productImg .addCart button h4 i {
+  transform: translateY(2px);
+}
+.product-holder:hover .productImg .addCart {
+  opacity: 1;
+  transform: translateY(0px);
+  visibility: visible;
+}
+.product-holder:hover .productHiddenSection button {
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.product-holder:not(:hover) .productHiddenSection button {
+  transition-delay: 0s;
+}
+
+.product-holder .productDiteals {
+  margin-top: 15px;
+  margin-bottom: 50px;
+}
+.product-holder .productDiteals h4 {
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+  font-family: "Inter";
+}
