@@ -320,8 +320,7 @@ p {
   transform: translateY(calc(-50% - 3px));
 }
 
-
-.tp-btn{
+.tp-btn {
   background-color: var(--tp-theme-1);
   font-size: 18px;
   padding: 17px 30px;
@@ -388,4 +387,12 @@ code {
   .navbarPadding {
     padding: 20px 0px !important;
   }
+}
+
+a {
+  text-decoration: none !important;
+}
+ul {
+  list-style: none !important;
+  padding: 0 !important;
 }

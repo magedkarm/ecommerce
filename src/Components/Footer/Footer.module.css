@@ -1,0 +1,116 @@
+.subscribe {
+  padding: 50px 0px;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Roboto", sans-serif;
+}
+.subscribeTitle {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 1.18;
+}
+@media only screen and (min-width: 576px) and (max-width: 767px),
+  only screen and (min-width: 768px) and (max-width: 991px) {
+  .subscribeTitle {
+    margin-bottom: 20px;
+  }
+}
+
+.subscribeInputBox {
+  width: 100%;
+  border: 1px solid black;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  height: 64px;
+  padding: 0px 170px 0px 29px;
+}
+.subscribeInputBox:focus {
+  outline: 0px;
+}
+.subscribeInputBtn {
+  font-family: "Roboto", sans-serif;
+  border: 0px;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  background: black;
+  padding: 10px 42px;
+  position: absolute;
+  top: 9px;
+  right: 10px;
+}
+@media (max-width: 576px) {
+  .subscribeTitle {
+    margin-bottom: 20px;
+    font-size: 23px;
+  }
+  .subscribeInputBtn {
+    margin-top: 15px;
+    position: static;
+  }
+  .subscribeInputBox {
+    padding-right: 29px;
+  }
+  .subscribe {
+    padding: 30px;
+  }
+}
+
+/* 
+===========================================
+Top Footer
+==========================================
+*/
+
+.pFooter {
+  font-size: 16px;
+  margin-top: 15px;
+  font-weight: 400;
+  color: #525258;
+  line-height: 1.38;
+}
+.footerSocial a {
+  color: #525258 !important;
+  transition: 0.5s;
+  display: inline-block;
+  font-size: 16px;
+  margin-right: 15px;
+}
+.footerSocial a:hover {
+  color: #f10c51a4 !important;
+}
+.footerPr {
+  padding-right: 70px;
+}
+.footerPl {
+  padding-left: 80px;
+}
+.footerTitle h3 {
+  color: #000000;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 36px;
+  padding-top: 3px;
+}
+.FooterUl ul li {
+  color: #525258;
+  font-size: 15px;
+  line-height: 1;
+  list-style: none;
+  margin-bottom: 15px;
+}
+.FooterUl ul li a {
+  color: #525258 !important;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  padding-left: 0;
+  transition: 0.5s;
+}
+.FooterUl ul li a:hover {
+  color: rgba(182, 8, 60, 0.644) !important;
+}

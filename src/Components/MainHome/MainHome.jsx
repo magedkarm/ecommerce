@@ -22,7 +22,9 @@ export default function MainHome() {
                 <Link className={"nav-link"} to="/shop">
                   {" "}
                   Shop Now{" "}
-                  <i class={style.stopBtn_i + " fa-solid fa-arrow-right"}></i>
+                  <i
+                    className={style.stopBtn_i + " fa-solid fa-arrow-right"}
+                  ></i>
                 </Link>
               </div>
             </div>
