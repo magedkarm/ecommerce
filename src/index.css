@@ -11,6 +11,16 @@ code {
     monospace;
 }
 
+/* reuable Classes */
+.imgbg {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.root {
+  position: relative;
+}
+
 /* Navbar */
 .navbarBorder {
   border-bottom: 1px solid #e2e2e2;
