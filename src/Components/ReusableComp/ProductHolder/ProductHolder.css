@@ -115,7 +115,7 @@ productDeteilsDescription
 .productDeteilsDescription .counterContent {
   display: inline;
   border: 1px solid;
-  padding: 10px;
+
   font-size: 20px;
 }
 .productDeteilsDescription .counterContent button {

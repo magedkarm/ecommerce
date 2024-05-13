@@ -20,7 +20,7 @@ export default function ProductHolder({ product }) {
   }
   return (
     <>
-      <div className="col-xl-3 col-lg-4 col-sm-6">
+      <div className="col-xl-4 col-lg-4 col-sm-6">
         <div className="product-holder position-relative overflow-hidden">
           <div className="productImg position-relative overflow-hidden  ">
             <img
@@ -29,8 +29,8 @@ export default function ProductHolder({ product }) {
               alt=""
             />
             <div className="addCart">
-              <button>
-                <h4>
+              <button className="text-center text-white">
+                <h4 className="text-white">
                   add to cart <i className="fa-solid fa-cart-shopping"></i>{" "}
                 </h4>
               </button>
@@ -38,7 +38,7 @@ export default function ProductHolder({ product }) {
           </div>
           <div className="productHiddenSection">
             <div className="sideSection">
-              <ul className="text-white listAction">
+              <ul className=" listAction">
                 <button>
                   <li>
                     <i className="fa-solid fa-heart"></i>
@@ -113,7 +113,7 @@ export default function ProductHolder({ product }) {
                               if (index === 0) {
                                 return (
                                   <button
-                                    className="nav-link active me-4"
+                                    className="nav-link active me-4 p-0"
                                     id="nav-home-tab"
                                     data-bs-toggle="tab"
                                     data-bs-target="#nav-home"
@@ -130,7 +130,7 @@ export default function ProductHolder({ product }) {
                                       style={{
                                         width: "100%",
                                         objectFit: "cover",
-                                        maxHeight: "480px",
+                                        height: "100%",
                                       }}
                                       src={
                                         "http://localhost:5000/img/products/" +
@@ -143,7 +143,7 @@ export default function ProductHolder({ product }) {
                               } else {
                                 return (
                                   <button
-                                    className="nav-link me-5"
+                                    className="nav-link me-5 p-0"
                                     id="nav-home-tab"
                                     data-bs-toggle="tab"
                                     data-bs-target="#nav-home"
@@ -160,7 +160,7 @@ export default function ProductHolder({ product }) {
                                       style={{
                                         width: "100%",
                                         objectFit: "cover",
-                                        maxHeight: "480px",
+                                        height: "100%",
                                       }}
                                       src={
                                         "http://localhost:5000/img/products/" +
@@ -192,7 +192,7 @@ export default function ProductHolder({ product }) {
                           <div className="counterContent">
                             <button
                               className=" btn-miuns position-relative"
-                              style={{ paddingRight: "10px" }}
+                              style={{ padding: "10px 20px" }}
                               onClick={counterMiuns}
                             >
                               <i className="fa-solid fa-minus"></i>
@@ -206,17 +206,23 @@ export default function ProductHolder({ product }) {
                             >
                               <i
                                 className="fa-solid fa-plus"
-                                style={{ paddingLeft: "10px" }}
+                                style={{ padding: "10px 20px" }}
                               ></i>
                             </button>
                           </div>
                         </div>
                         <div className="btnAction d-flex flex-wrap align-items-center">
-                          <button type="buttun" className="addToCart">
+                          <button
+                            type="buttun"
+                            className="addToCart text-center"
+                          >
                             <i class="fa-solid fa-cart-shopping"></i> Add To
                             Cart
                           </button>
-                          <button type="buttun" className="addToWishList">
+                          <button
+                            type="buttun"
+                            className="addToWishList text-center"
+                          >
                             <i class="fa-regular fa-heart"></i>
                             <span>Add To Wishlist</span>
                           </button>

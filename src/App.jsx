@@ -5,12 +5,14 @@ import Layout from "./Components/Layout/Layout";
 import Sigin from "./Components/Signin/Sigin";
 import Sigup from "./Components/Signup/Signup";
 import { QueryClient, QueryClientProvider } from "react-query";
+import Shop from "./Components/Shop/Shop";
 const router = createBrowserRouter([
   {
     path: "",
     element: <Layout />,
     children: [
       { path: "", element: <Home /> },
+      { path: "/shop", element: <Shop /> },
       { path: "/signin", element: <Sigin /> },
       { path: "/signup", element: <Sigup /> },
     ],

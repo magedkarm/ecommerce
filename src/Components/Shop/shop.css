@@ -1,0 +1,99 @@
+.shop {
+  margin-top: 6.1rem !important;
+}
+.shop .path {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  color: #000;
+  font-weight: 600;
+  margin-right: 5px;
+  margin-bottom: 80px;
+}
+.shop .path a {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  color: #000;
+  font-weight: 600;
+  margin-right: 5px;
+  transition: all 0.3s ease 0s;
+}
+.shop .path a:hover {
+  color: #f50963;
+}
+.shop .path a i {
+  margin-right: 5px;
+}
+
+.shop .shopHeader {
+  border: 1px solid rgba(3, 4, 28, 0.1);
+  padding: 15px 20px 15px 30px;
+}
+.shop .ShopHeaderTitle h4 {
+  margin: 0;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+}
+.shop .DropDownStyle {
+  border: 1px solid #e9e9f0;
+  border-radius: 0;
+  color: var(--tp-text-1);
+  font-family: var(--tp-ff-roboto);
+  font-size: 14px;
+  font-weight: 400;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 20px;
+  width: 230px;
+  background-color: #fff;
+  position: relative;
+  text-align: left !important;
+  transition: all 0.2s ease-in-out;
+}
+.shop .DropDownStyle::after {
+  right: 12px;
+  position: absolute;
+  top: 50%;
+  font-size: 20px;
+  transform: translate(-50%, -50%);
+  transition: all 0.2s ease-in-out;
+  transform: rotate(0deg);
+}
+.shop .DropDownStyle.show::after {
+  transform: rotate(180deg);
+}
+.shop .dropdown .dropdown-menu {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 0 1px rgba(68, 68, 68, 0.11);
+  box-sizing: border-box;
+  left: 0;
+  margin-top: 4px;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 100%;
+  transform: scale(0.75) translateY(-21px);
+  transform-origin: 50% 0;
+  transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
+  z-index: 9;
+  border: 0px;
+  border-radius: 0px;
+  border-radius: 0;
+  margin-top: 0;
+  padding: 12px 0;
+  width: 100%;
+}
+
+.shop .dropdown .dropdown-menu.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1) translateY(0);
+}
+/* 
+shdeBar
+*/
+.shopSidebar * {
+  font-family: var(--tp-ff-roboto);
+}

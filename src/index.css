@@ -20,7 +20,42 @@ code {
 .root {
   position: relative;
 }
+.pointer {
+  cursor: pointer;
+}
 
+button {
+  all: unset;
+}
+
+.CheckboxRoot {
+  background-color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid;
+}
+.CheckboxRoot:hover {
+  border-color: #fc00a8;
+}
+.CheckboxRoot:focus {
+  border-color: #123068;
+}
+
+.CheckboxIndicator {
+  color: #2b282a;
+  font-size: 20px;
+}
+
+.Label {
+  color: rgb(0, 0, 0);
+  padding-left: 15px;
+  font-size: 15px;
+  line-height: 1;
+}
 /* Navbar */
 .navbarBorder {
   border-bottom: 1px solid #e2e2e2;
