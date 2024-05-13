@@ -315,6 +315,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.text-white {
+  --bs-text-opacity: 1;
+}
 h1,
 h2,
 h3,
@@ -368,7 +371,7 @@ p {
 .tp-btn {
   background-color: var(--tp-theme-1);
   font-size: 18px;
-  padding: 17px 30px;
+  padding: 17px 0px;
   color: var(--tp-common-white);
   font-family: var(--tp-ff-space);
 }

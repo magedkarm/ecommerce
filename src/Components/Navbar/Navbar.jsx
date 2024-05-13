@@ -1,7 +1,18 @@
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../../Assets/Images/logo-black.svg";
+
+import { AuthContext } from "../../context/Auth";
+import { CiHeart } from "react-icons/ci";
 export default function Navbar() {
+  const { token, setToken } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  function logout() {
+    setToken(null);
+    localStorage.removeItem("token");
+    navigate("/signin");
+  }
   return (
     <>
       <div className=" ">
@@ -33,7 +44,7 @@ export default function Navbar() {
                 />
               </div>
               <div className="offcanvas-body me-auto align-items-center ps-5  ">
-                <div className="mainMenu">
+                <div className="mainMenu d-flex align-items-center">
                   <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li className="nav-item ">
                       <NavLink className="nav-link">Home</NavLink>
@@ -60,7 +71,65 @@ export default function Navbar() {
             </div>
 
             <div className="col-xxl-5 col-xl-3 col-lg-8 col-md-8 col-sm-7 col-4">
-              <div className=" d-flex justify-content-end align-items-center pl-30"></div>
+              <div className=" d-flex justify-content-center align-items-center pl-30">
+                <ul className="navbar-nav  mb-2 mb-lg-0 ">
+                  {token ? (
+                    <>
+                      <li className="nav-item  ">
+                        <span
+                          onClick={logout}
+                          style={{
+                            cursor: "pointer",
+                            color: "#000 !important",
+                          }}
+                          className="nav-link text-white  "
+                          to="/"
+                        >
+                          Log out
+                        </span>
+                      </li>
+                      <li className="nav-item ">
+                        <NavLink className="nav-link " to="/signin">
+                          <i
+                            style={{ fontSize: "25px" }}
+                            class="fa-regular fa-user"
+                          ></i>
+                        </NavLink>
+                      </li>
+                      <li className="nav-item ">
+                        <NavLink className="nav-link " to="/signin">
+                          <i
+                            style={{ fontSize: "25px" }}
+                            class="fa-solid fa-cart-shopping"
+                          ></i>
+                        </NavLink>
+                      </li>
+                      <li className="nav-item ">
+                        <NavLink className="nav-link " to="/signin">
+                          <i
+                            style={{ fontSize: "25px" }}
+                            class="fa-regular fa-heart"
+                          ></i>
+                        </NavLink>
+                      </li>
+                    </>
+                  ) : (
+                    <>
+                      <li className="nav-item ">
+                        <NavLink className="nav-link " to="/signin">
+                          login
+                        </NavLink>
+                      </li>
+
+                      <li className="nav-item">
+                        <NavLink className="nav-link" to="/signup">
+                          signup
+                        </NavLink>
+                      </li>
+                    </>
+                  )}
+                </ul>
+              </div>
             </div>
             <button
               className="navbar-toggler "

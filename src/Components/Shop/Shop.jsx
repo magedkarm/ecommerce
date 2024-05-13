@@ -15,6 +15,7 @@ export default function Shop() {
   const [defaultProducts, setDefaultProducts] = useState(null);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useSearchParams();
+  // ??????
 
   async function getAllProducts() {
     try {

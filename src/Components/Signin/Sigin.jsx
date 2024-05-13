@@ -1,6 +1,55 @@
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
 
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { Hourglass } from "react-loader-spinner";
+import { AuthContext } from "../../context/Auth";
 function Sigin() {
+  const [errorMsg, seterrorMsg] = useState(null);
+  const [successMsg, setsuccessMsgMsg] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const authContext = useContext(AuthContext);
+
+  async function submitLogin(values) {
+    setLoading(true);
+    const { data } = await axios
+      .post("http://localhost:5000/api/v1/users/login", values)
+      .catch(function (error) {
+        setsuccessMsgMsg(null);
+        setLoading(false);
+        seterrorMsg(error.response.data.message);
+      });
+    if (data.status) {
+      localStorage.setItem("token", data.token);
+      authContext.setToken(data.token);
+      seterrorMsg(null);
+      setsuccessMsgMsg(" successfully login");
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
+    } else {
+      setLoading(false);
+    }
+  }
+
+  const validationSchema = Yup.object({
+    email: Yup.string().required("email is required").email("email not valid"),
+    password: Yup.string()
+      .matches(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/, " password not match")
+      .required("password is required"),
+  });
+
+  let formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validationSchema,
+    onSubmit: submitLogin,
+  });
   return (
     <>
       <div
@@ -13,12 +62,27 @@ function Sigin() {
             <p>Enter your credentials to access your account.</p>
           </div>
           <div>
-            <form>
+            <form onSubmit={formik.handleSubmit}>
               <div className="login__input-wrapper">
+                {errorMsg ? (
+                  <div className="alert alert-danger">{errorMsg}</div>
+                ) : (
+                  ""
+                )}
+                {successMsg ? (
+                  <div className="alert alert-success">{successMsg}</div>
+                ) : (
+                  ""
+                )}
+
                 <div className="login__input-item">
                   <div className="login__input position-relative">
                     <input
+                      id="email"
                       name="email"
+                      onBlur={formik.handleBlur}
+                      onChange={formik.handleChange}
+                      value={formik.values.email}
                       type="email"
                       placeholder="Enter your email*"
                     />
@@ -47,13 +111,21 @@ function Sigin() {
                       </svg>
                     </span>
                   </div>
-                  {/* <div style={{ color: "red" }}>Email is a required field</div> */}
+                  {formik.errors.email && formik.touched.email ? (
+                    <p className="alert alert-danger ">{formik.errors.email}</p>
+                  ) : (
+                    ""
+                  )}
                 </div>
                 <div className="login__input-item ">
                   <div className="login__input-item-inner position-relative">
                     <div className="login__input">
                       <input
+                        id="password"
                         name="password"
+                        onBlur={formik.handleBlur}
+                        onChange={formik.handleChange}
+                        value={formik.values.password}
                         type="password"
                         placeholder="Password"
                       />
@@ -90,13 +162,32 @@ function Sigin() {
                       </span>
                     </div>
                   </div>
-                  {/* <div style={{ color: "red" }}>error</div> */}
+                  {formik.errors.password && formik.touched.password ? (
+                    <p className="alert alert-danger ">
+                      {formik.errors.password}
+                    </p>
+                  ) : (
+                    ""
+                  )}
+                  <button
+                    type="submit"
+                    className="tp-btn w-100 border-0 text-center "
+                  >
+                    {loading ? (
+                      <Hourglass
+                        visible={true}
+                        height="40"
+                        width="40"
+                        ariaLabel="hourglass-loading"
+                        wrapperStyle={{}}
+                        wrapperClass=""
+                        colors={["#fff", "#FFF"]}
+                      />
+                    ) : (
+                      "Login"
+                    )}
+                  </button>
                 </div>
-              </div>
-              <div>
-                <button type="submit" className="tp-btn w-100 border-0 ">
-                  Sign In
-                </button>
               </div>
             </form>
             <div className="login__register-now text-center mt-2">
