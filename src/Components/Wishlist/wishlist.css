@@ -1,0 +1,85 @@
+.pagesUesrs h2 {
+  color: #000;
+  font-size: 70px;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.pagesUesrs .pageArea {
+  padding: 100px 0px;
+}
+.pagesUesrs .continueShoping {
+  padding: 17px 37px;
+  background-color: #f1f1f1;
+}
+.pagesUesrs .continueShoping a {
+  color: #000 !important;
+  transition: all 0.3s;
+}
+.pagesUesrs .continueShoping a:hover {
+  color: #dd0081 !important;
+}
+.table td,
+.MuiTableCell-root,
+.MuiTableCell-root {
+  border: 1px solid rgba(224, 224, 224, 1);
+  font-size: 20px;
+}
+
+.pagesUesrs .MuiTableCell-root button {
+  padding: 12px 20px;
+  color: white;
+  background: black;
+  font-size: 20px;
+}
+.pageArea .MuiTableCell .tableCell {
+  font-size: 20px;
+  font-weight: 500;
+}
+.pageArea .quantityBTn {
+  background: #fff !important;
+  color: #000000;
+  font-size: 20px;
+  position: relative;
+}
+.pageArea .quantityBTn i {
+  color: #000000;
+}
+.pageArea .quantityBTn .fa-minus::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 80%;
+  background-color: #dadce0;
+  top: 7px;
+  right: 0;
+}
+.pageArea .quantityBTn .fa-plus::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 80%;
+  background-color: #dadce0;
+  top: 7px;
+  left: 0;
+}
+.pageArea .quantity {
+  border: 1px solid #dadce0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 23px;
+  font-weight: 600;
+}
+.pageArea .detailsCart ul li {
+  border: 1px solid #dadce0;
+  padding: 20px;
+}
+.pageArea .detailsCart ul li span {
+  font-size: 18px;
+  font-weight: 500;
+}
+.pageArea .detailsCart ul li span:first-child {
+  font-size: 20px;
+  font-weight: 500;
+}

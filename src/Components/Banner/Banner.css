@@ -1,0 +1,58 @@
+.banner .bannerAria {
+  padding: 100px;
+}
+.banner span {
+  color: #525258;
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 7px;
+  display: inline-block;
+  font-family: "Roboto", sans-serif;
+}
+.banner h3 {
+  margin-bottom: 21px;
+  font-family: "Roboto", sans-serif;
+}
+.banner h3 a {
+  color: #000000;
+  font-size: 44px;
+  font-weight: 600;
+  line-height: 1.09;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 21px;
+  transition: all 0.3s ease 0s;
+}
+.banner h3 a:hover {
+  color: #f50963;
+}
+.banner p {
+  color: #525258;
+  font-size: 17px;
+  line-height: 17px;
+  margin-bottom: 7px;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 35px;
+}
+.banner p span {
+  color: #000000;
+  font-size: 30px;
+  font-weight: 600;
+}
+.banner button {
+  border: 0;
+  padding: 9px 25px;
+  background: #fff;
+  box-shadow: 0px 2px 5px rgba(3, 4, 28, 0.1);
+  color: #000;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease 0s;
+}
+.banner button:hover {
+  background: #f50963;
+  color: #ffffff;
+}
+.banner {
+  margin-bottom: 80px;
+}

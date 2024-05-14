@@ -1,0 +1,237 @@
+.badyOverlay {
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  visibility: hidden;
+  width: 100%;
+  z-index: 1040;
+}
+.overlayBack {
+  background-color: #000000;
+  height: 100%;
+  left: 0;
+  opacity: 0.7;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1040;
+}
+.badyOverlay .modal-dialog {
+  max-width: 1200px;
+}
+.quickView {
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  z-index: 1041;
+}
+.quickView .modal-content {
+  border-radius: 0;
+  padding: 40px;
+}
+.quickView .productDeteilsClose {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+}
+.quickView .productDeteilsClose button {
+  font-size: 40px;
+  transform: rotate(0deg);
+  opacity: 1;
+
+  transition: all 0.3s ease 0s;
+  transition-property: transform, color;
+}
+.quickView .productDeteilsClose:hover button {
+  transform: rotate(90deg);
+  color: #f50963;
+}
+.quickView .btn:active {
+  border: 0px;
+}
+.productDeteilsImg .nav-link {
+  height: 90px;
+  margin-bottom: 10px;
+  width: 90px;
+  position: relative;
+  border: 1px solid #0000007c;
+  border-radius: 0px;
+}
+
+.productDeteilsImg .nav-link.active {
+  border: 1px solid #f50963;
+  border-radius: 0;
+}
+.productDeteilsImg .nav-tabs {
+  border: 0px;
+}
+
+/* 
+productDeteilsDescription
+*/
+
+.productDeteilsDescription .productDeteilsDescriptionTitle {
+  font-family: "Roboto", sans-serif;
+  font-size: 34px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.productDeteilsDescription .productDeteilsDescriptionP {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  line-height: 1.2em;
+  margin-bottom: 23px;
+  overflow: hidden;
+  height: 3.6em;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+.productDeteilsDescription .price {
+  margin-bottom: 35px;
+}
+.productDeteilsDescription .priceAmount {
+  font-family: "Roboto", sans-serif;
+  font-size: 34px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.productDeteilsDescription .discount {
+  font-family: "Roboto", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  background-color: #f50963;
+  color: #fff;
+  padding: 2px 4px;
+  position: absolute;
+  top: 12px;
+}
+.productDeteilsDescription .counter {
+  display: flex;
+  margin-bottom: 35px;
+}
+.productDeteilsDescription .counterContent {
+  display: inline;
+  border: 1px solid;
+
+  font-size: 20px;
+}
+.productDeteilsDescription .counterContent button {
+  font-size: 20px;
+  background-color: transparent;
+  border: 0;
+}
+.productDeteilsDescription .counterContent span {
+  padding: 0px 20px;
+}
+.productDeteilsDescription .counterContent .btn-miuns::after {
+  content: "";
+  position: absolute;
+  height: 75%;
+  width: 1px;
+  background-color: #000000;
+  top: 10%;
+  right: 0;
+}
+.productDeteilsDescription .counterContent .btn-plus::after {
+  content: "";
+  position: absolute;
+  height: 75%;
+  width: 1px;
+  background-color: #000000;
+  top: 10%;
+  left: 0;
+}
+.productDeteilsDescription .btnAction {
+  border-bottom: 1px solid #dadce0;
+  margin-bottom: 32px;
+  padding-bottom: 34px;
+}
+.productDeteilsDescription .addToCart {
+  display: inline-block;
+  font-size: 17.3px;
+  font-weight: 600;
+  text-align: center;
+  margin-right: 6px;
+  background-color: #000;
+  color: #fff;
+  padding: 12px 45px;
+  border: 0;
+  transition: all 0.3s ease 0s;
+  transition-property: color, background-color;
+}
+.productDeteilsDescription .addToWishList {
+  border: 1px solid #dadce0;
+  color: var(--tp-common-black);
+  font-size: 32px;
+  height: 50px;
+  line-height: 48px;
+  background-color: white;
+  text-align: center;
+  width: 50px;
+  position: relative;
+  transition: all 0.3s ease 0s;
+  transition-property: color, background-color;
+}
+.productDeteilsDescription .addToWishList span {
+  background-color: var(--tp-common-black);
+  color: var(--tp-common-white);
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  padding: 4px 8px;
+  position: absolute;
+  right: -150%;
+  width: max-content;
+  z-index: 1;
+  bottom: 100%;
+  left: auto;
+  margin: auto auto 10px;
+  top: auto;
+  transform: translate(-47%, 50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease 0s;
+}
+.productDeteilsDescription .addToWishList span::before {
+  content: "";
+  background-color: #000000;
+  position: absolute;
+  height: 8px;
+  width: 8px;
+  top: 100%;
+  transform: translate(50%, -50%) rotate(45deg);
+  right: 50%;
+  left: auto;
+}
+.productDeteilsDescription .addToWishList:hover span {
+  transform: translate(-47%, -5%);
+  opacity: 1;
+  visibility: visible;
+}
+
+.productDeteilsDescription .addToCart:hover,
+.productDeteilsDescription .addToWishList:hover {
+  background-color: #f50963;
+  color: #fff;
+}
+
+/* DisCount */
+.productImg .DiscountPacket {
+  position: absolute;
+  top: 12px;
+  left: 0;
+}
+.productImg .DiscountPacket span {
+  background-color: var(--tp-common-black);
+  color: var(--tp-common-white);
+  display: inline-block;
+  font-size: 13px;
+  line-height: 1;
+  margin-bottom: 5px;
+  padding: 4px 10px;
+  text-transform: capitalize;
+}

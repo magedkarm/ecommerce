@@ -1,0 +1,56 @@
+.pagesUesrs .pageArea .BillingHeader h3 {
+  border-bottom: 1px solid #0000005b;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.pagesUesrs .pageArea .billing .billingDetails .login__input input {
+  width: 100%;
+}
+.pageArea .counterySelector {
+  background-color: var(--tp-grey-15);
+  border: 1px solid var(--tp-grey-15);
+  border-radius: 0;
+  color: var(--tp-common-black);
+  float: none;
+  height: 60px;
+  line-height: 58px;
+  padding: 0 25px;
+  width: 100%;
+}
+.pageArea h5 {
+  font-size: 12px;
+  padding-top: 25px;
+}
+.pageArea .orderDEtatails {
+  border: 2px solid #0000005b;
+  padding: 10px 25px;
+}
+.pageArea .orderDEtatails .trTable th {
+  border-top: none;
+  color: var(--tp-text-1);
+  font-weight: 400;
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 250px;
+  font-size: 14px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--tp-border-5);
+  border-right: none;
+}
+.pageArea .orderDEtatails .trTable th:last-child {
+  text-align: center;
+}
+
+.pageArea .orderDEtatails .tbTable td {
+  border-bottom: 1px solid var(--tp-border-5);
+  border-right: none;
+  color: var(--tp-text-1);
+  font-size: 14px;
+  padding: 15px 0;
+  text-align: left;
+}
+.pageArea .orderDEtatails .tbTable td:last-child {
+  text-align: center;
+}

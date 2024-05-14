@@ -1,0 +1,10 @@
+.MiniSlider {
+  margin: 100px 0px;
+}
+.MiniSlider .swiper-scrollbar {
+  height: 2px;
+  background-color: #e7e7e7;
+}
+.MiniSlider .swiper-scrollbar-drag {
+  background-color: #f50963;
+}
