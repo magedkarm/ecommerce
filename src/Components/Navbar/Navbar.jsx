@@ -16,7 +16,7 @@ export default function Navbar() {
   return (
     <>
       <div className=" ">
-        <nav className="navbar navbar-expand-lg bg-light fixed-top navbarBorder navbarPadding">
+        <nav className="navbar navbar-expand-lg bg-light navbarBorder navbarPadding">
           <div className="container-fluid">
             <div className="row">
               <div className="col-xxl-1 col-xl-2 col-lg-4 col-md-4 col-sm-5 col-8 pe-5">
@@ -92,23 +92,23 @@ export default function Navbar() {
                         <NavLink className="nav-link " to="/signin">
                           <i
                             style={{ fontSize: "25px" }}
-                            class="fa-regular fa-user"
+                            className="fa-regular fa-user"
                           ></i>
                         </NavLink>
                       </li>
                       <li className="nav-item ">
-                        <NavLink className="nav-link " to="/signin">
+                        <NavLink className="nav-link " to="/cart">
                           <i
                             style={{ fontSize: "25px" }}
-                            class="fa-solid fa-cart-shopping"
+                            className="fa-solid fa-cart-shopping"
                           ></i>
                         </NavLink>
                       </li>
                       <li className="nav-item ">
-                        <NavLink className="nav-link " to="/signin">
+                        <NavLink className="nav-link " to="/wishlist">
                           <i
                             style={{ fontSize: "25px" }}
-                            class="fa-regular fa-heart"
+                            className="fa-regular fa-heart"
                           ></i>
                         </NavLink>
                       </li>

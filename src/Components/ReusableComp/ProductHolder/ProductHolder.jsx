@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "../ProductHolder/ProductHolder.css";
 import axios from "axios";
+import { AuthContext } from "../../../context/Auth";
+import toast from "react-hot-toast";
 
 export default function ProductHolder({ product }) {
   const [clickQuickVeiw, setClickQuickVeiw] = useState(false);
   const [productDetails, setproductDetails] = useState(null);
   const [displayImg, setDisplayImg] = useState(null);
   const [counter, setCounter] = useState(1);
-
+  const { token } = useContext(AuthContext);
   async function getProductDetails(id) {
     const { data } = await axios.get(
       `http://localhost:5000/api/v1/products/` + id
@@ -18,6 +20,51 @@ export default function ProductHolder({ product }) {
   function counterMiuns() {
     if (counter > 1) setCounter(counter - 1);
   }
+
+  // add Func
+  async function addToWishList(id) {
+    try {
+      const { data } = await axios.post(
+        `http://localhost:5000/api/v1/wishlists`,
+        {
+          productId: id,
+        },
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+      console.log(data);
+
+      toast.success("Add to Your WishList");
+    } catch (error) {
+      toast.error(error.response.data.message);
+    }
+  }
+
+  async function addToCart(id) {
+    console.log(id);
+    try {
+      const { data } = await axios.post(
+        `http://localhost:5000/api/v1/carts`,
+        {
+          productId: id,
+        },
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+      console.log(data);
+
+      toast.success("Add to Your Cart");
+    } catch (error) {
+      toast.error(error.response.data.message);
+    }
+  }
+
   return (
     <>
       <div className="col-xl-4 col-lg-4 col-sm-6">
@@ -29,7 +76,12 @@ export default function ProductHolder({ product }) {
               alt=""
             />
             <div className="addCart">
-              <button className="text-center text-white">
+              <button
+                className="text-center text-white"
+                onClick={() => {
+                  addToCart(product._id);
+                }}
+              >
                 <h4 className="text-white">
                   add to cart <i className="fa-solid fa-cart-shopping"></i>{" "}
                 </h4>
@@ -39,7 +91,11 @@ export default function ProductHolder({ product }) {
           <div className="productHiddenSection">
             <div className="sideSection">
               <ul className=" listAction">
-                <button>
+                <button
+                  onClick={() => {
+                    addToWishList(product._id);
+                  }}
+                >
                   <li>
                     <i className="fa-solid fa-heart"></i>
                   </li>
@@ -54,7 +110,11 @@ export default function ProductHolder({ product }) {
                     <i className="fa-solid fa-eye"></i>
                   </li>
                 </button>
-                <button>
+                <button
+                  onClick={() => {
+                    addToCart(product._id);
+                  }}
+                >
                   <li>
                     <i className="fa-solid fa-cart-shopping"></i>
                   </li>

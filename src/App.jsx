@@ -8,17 +8,48 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import Shop from "./Components/Shop/Shop";
 import { AuthProvidor } from "./context/Auth";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute.jsx";
+import Contact from "./Components/Contact/Contact.jsx";
+import { Toaster } from "react-hot-toast";
+import WishList from "./Components/Wishlist/WishList.jsx";
+import Cart from "./Components/Cart/Cart.jsx";
+import Checkout from "./Components/checkout/Checkout.jsx";
+
 const router = createBrowserRouter([
   {
     path: "",
     element: <Layout />,
     children: [
       { path: "", element: <Home /> },
+      { path: "/contactus", element: <Contact /> },
       {
         path: "shop",
         element: (
           <ProtectedRoute>
             <Shop />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "wishlist",
+        element: (
+          <ProtectedRoute>
+            <WishList />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "cart",
+        element: (
+          <ProtectedRoute>
+            <Cart />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "checkout",
+        element: (
+          <ProtectedRoute>
+            <Checkout />
           </ProtectedRoute>
         ),
       },
@@ -36,6 +67,7 @@ function App() {
           <RouterProvider router={router} />
         </AuthProvidor>
       </QueryClientProvider>
+      <Toaster />
     </>
   );
 }
