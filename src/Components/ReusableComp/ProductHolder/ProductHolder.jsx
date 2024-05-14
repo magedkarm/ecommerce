@@ -3,6 +3,7 @@ import "../ProductHolder/ProductHolder.css";
 import axios from "axios";
 import { AuthContext } from "../../../context/Auth";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 export default function ProductHolder({ product }) {
   const [clickQuickVeiw, setClickQuickVeiw] = useState(false);
@@ -10,6 +11,7 @@ export default function ProductHolder({ product }) {
   const [displayImg, setDisplayImg] = useState(null);
   const [counter, setCounter] = useState(1);
   const { token } = useContext(AuthContext);
+
   async function getProductDetails(id) {
     const { data } = await axios.get(
       `http://localhost:5000/api/v1/products/` + id
@@ -35,7 +37,6 @@ export default function ProductHolder({ product }) {
           },
         }
       );
-      console.log(data);
 
       toast.success("Add to Your WishList");
     } catch (error) {
@@ -44,7 +45,6 @@ export default function ProductHolder({ product }) {
   }
 
   async function addToCart(id) {
-    console.log(id);
     try {
       const { data } = await axios.post(
         `http://localhost:5000/api/v1/carts`,
@@ -57,7 +57,6 @@ export default function ProductHolder({ product }) {
           },
         }
       );
-      console.log(data);
 
       toast.success("Add to Your Cart");
     } catch (error) {
@@ -70,11 +69,19 @@ export default function ProductHolder({ product }) {
       <div className="col-xl-4 col-lg-4 col-sm-6">
         <div className="product-holder position-relative overflow-hidden">
           <div className="productImg position-relative overflow-hidden  ">
-            <img
-              className="img-fluid"
-              src={"http://localhost:5000/img/products/" + product.images[0]}
-              alt=""
-            />
+            <Link
+              style={{ color: "#000" }}
+              to={`/ProductDeteals/${product._id}`}
+            >
+              <img
+                className="img-fluid"
+                src={"http://localhost:5000/img/products/" + product.images[0]}
+                alt=""
+              />
+            </Link>
+            <div className="DiscountPacket">
+              {product.discount > 0 ? <span>-${product.discount}%</span> : null}
+            </div>
             <div className="addCart">
               <button
                 className="text-center text-white"
@@ -203,7 +210,7 @@ export default function ProductHolder({ product }) {
                               } else {
                                 return (
                                   <button
-                                    className="nav-link me-5 p-0"
+                                    className="nav-link me-4 p-0"
                                     id="nav-home-tab"
                                     data-bs-toggle="tab"
                                     data-bs-target="#nav-home"
@@ -275,15 +282,21 @@ export default function ProductHolder({ product }) {
                           <button
                             type="buttun"
                             className="addToCart text-center"
+                            onClick={() => {
+                              addToCart(product._id);
+                            }}
                           >
-                            <i class="fa-solid fa-cart-shopping"></i> Add To
+                            <i className="fa-solid fa-cart-shopping"></i> Add To
                             Cart
                           </button>
                           <button
                             type="buttun"
                             className="addToWishList text-center"
+                            onClick={() => {
+                              addToWishList(product._id);
+                            }}
                           >
-                            <i class="fa-regular fa-heart"></i>
+                            <i className="fa-regular fa-heart"></i>
                             <span>Add To Wishlist</span>
                           </button>
                         </div>

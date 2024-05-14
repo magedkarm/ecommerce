@@ -13,7 +13,8 @@ import { Toaster } from "react-hot-toast";
 import WishList from "./Components/Wishlist/WishList.jsx";
 import Cart from "./Components/Cart/Cart.jsx";
 import Checkout from "./Components/checkout/Checkout.jsx";
-
+import Orders from "./Components/Orders/Orders.jsx";
+import ProductDetails from "./Components/productDetails/ProductDetails.jsx";
 const router = createBrowserRouter([
   {
     path: "",
@@ -36,6 +37,18 @@ const router = createBrowserRouter([
             <WishList />
           </ProtectedRoute>
         ),
+      },
+      {
+        path: "orders",
+        element: (
+          <ProtectedRoute>
+            <Orders />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/ProductDeteals/:id",
+        element: <ProductDetails />,
       },
       {
         path: "cart",

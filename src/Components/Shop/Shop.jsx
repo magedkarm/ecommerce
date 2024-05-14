@@ -119,7 +119,9 @@ export default function Shop() {
         </div>
         <div className="shopHeader border-1 d-flex justify-content-between align-items-center">
           <div className="ShopHeaderTitle">
-            <h4>Showing 1–4 of 4 results</h4>
+            <h4>
+              Showing 1–{allProducts.length} of {allProducts.length} results
+            </h4>
           </div>
           <div className="ShopHeaderFilter">
             <div className="dropdown">

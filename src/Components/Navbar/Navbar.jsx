@@ -82,20 +82,13 @@ export default function Navbar() {
                             cursor: "pointer",
                             color: "#000 !important",
                           }}
-                          className="nav-link text-white  "
+                          className="nav-link text-dark  "
                           to="/"
                         >
                           Log out
                         </span>
                       </li>
-                      <li className="nav-item ">
-                        <NavLink className="nav-link " to="/signin">
-                          <i
-                            style={{ fontSize: "25px" }}
-                            className="fa-regular fa-user"
-                          ></i>
-                        </NavLink>
-                      </li>
+
                       <li className="nav-item ">
                         <NavLink className="nav-link " to="/cart">
                           <i

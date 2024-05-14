@@ -218,3 +218,20 @@ productDeteilsDescription
   background-color: #f50963;
   color: #fff;
 }
+
+/* DisCount */
+.productImg .DiscountPacket {
+  position: absolute;
+  top: 12px;
+  left: 0;
+}
+.productImg .DiscountPacket span {
+  background-color: var(--tp-common-black);
+  color: var(--tp-common-white);
+  display: inline-block;
+  font-size: 13px;
+  line-height: 1;
+  margin-bottom: 5px;
+  padding: 4px 10px;
+  text-transform: capitalize;
+}
