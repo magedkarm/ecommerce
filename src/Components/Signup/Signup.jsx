@@ -14,7 +14,10 @@ function Sigup() {
   async function submitRegister(values) {
     setLoading(true);
     const { data } = await axios
-      .post("http://localhost:5000/api/v1/users/signup", values)
+      .post(
+        "https://e-commerce-project-1-tvev.onrender.com/api/v1/users/signup",
+        values
+      )
       .catch(function (error) {
         setLoading(false);
         seterrorMsg(error.response.data.message);
@@ -218,6 +221,7 @@ function Sigup() {
                       onBlur={formik.handleBlur}
                       onChange={formik.handleChange}
                       value={formik.values.passwordConfirm}
+                      type="password"
                       placeholder="Confirm Password"
                     />
                     <span>

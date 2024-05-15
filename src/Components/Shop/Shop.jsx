@@ -20,7 +20,7 @@ export default function Shop() {
   async function getAllProducts() {
     try {
       const { data } = await axios.get(
-        `http://localhost:5000/api/v1/products`,
+        `https://e-commerce-project-1-tvev.onrender.com/api/v1/products`,
         {
           params: search,
         }
@@ -37,7 +37,7 @@ export default function Shop() {
   async function getAllCategories() {
     try {
       const { data } = await axios.get(
-        `http://localhost:5000/api/v1/categories`
+        `https://e-commerce-project-1-tvev.onrender.com/api/v1/categories`
       );
 
       setAllCategories(data.data.data);
@@ -50,7 +50,9 @@ export default function Shop() {
   // ===== getAllBrands
   async function getAllBrands() {
     try {
-      const { data } = await axios.get(`http://localhost:5000/api/v1/brands`);
+      const { data } = await axios.get(
+        `https://e-commerce-project-1-tvev.onrender.com/api/v1/brands`
+      );
 
       setAllBrands(data.data.data);
       setLoading(false);

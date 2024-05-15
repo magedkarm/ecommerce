@@ -8,11 +8,14 @@ export default function Orders() {
 
   async function getOrder() {
     try {
-      const { data } = await axios.get("http://localhost:5000/api/v1/orders", {
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      });
+      const { data } = await axios.get(
+        "https://e-commerce-project-1-tvev.onrender.com/api/v1/orders",
+        {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        }
+      );
 
       setGetOrders(data?.data.data);
     } catch (e) {
