@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 export default function Orders() {
   const [getOrders, setGetOrders] = useState(null);
