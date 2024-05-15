@@ -10,11 +10,11 @@ export default function ProductHolder({ product }) {
   const [productDetails, setproductDetails] = useState(null);
   const [displayImg, setDisplayImg] = useState(null);
   const [counter, setCounter] = useState(1);
-  const { token } = useContext(AuthContext);
+  const { token, setWishNums, setCartNums } = useContext(AuthContext);
 
   async function getProductDetails(id) {
     const { data } = await axios.get(
-      `http://localhost:5000/api/v1/products/` + id
+      `https://e-commerce-project-1-tvev.onrender.com/api/v1/products/` + id
     );
     setproductDetails(data?.data.date);
     setDisplayImg(data?.data.date.images[0]);
@@ -27,7 +27,7 @@ export default function ProductHolder({ product }) {
   async function addToWishList(id) {
     try {
       const { data } = await axios.post(
-        `http://localhost:5000/api/v1/wishlists`,
+        `https://e-commerce-project-1-tvev.onrender.com/api/v1/wishlists`,
         {
           productId: id,
         },
@@ -37,7 +37,7 @@ export default function ProductHolder({ product }) {
           },
         }
       );
-
+      setWishNums(data?.data.length);
       toast.success("Add to Your WishList");
     } catch (error) {
       toast.error(error.response.data.message);
@@ -47,7 +47,7 @@ export default function ProductHolder({ product }) {
   async function addToCart(id) {
     try {
       const { data } = await axios.post(
-        `http://localhost:5000/api/v1/carts`,
+        `https://e-commerce-project-1-tvev.onrender.com/api/v1/carts`,
         {
           productId: id,
         },
@@ -57,7 +57,7 @@ export default function ProductHolder({ product }) {
           },
         }
       );
-
+      setCartNums(data?.data.cart.cartItems.length);
       toast.success("Add to Your Cart");
     } catch (error) {
       toast.error(error.response.data.message);
@@ -75,7 +75,10 @@ export default function ProductHolder({ product }) {
             >
               <img
                 className="img-fluid"
-                src={"http://localhost:5000/img/products/" + product.images[0]}
+                src={
+                  "https://e-commerce-project-1-tvev.onrender.com/img/products/" +
+                  product.images[0]
+                }
                 alt=""
               />
             </Link>
@@ -159,7 +162,8 @@ export default function ProductHolder({ product }) {
                       <div className="productDeteilsImg">
                         <img
                           src={
-                            "http://localhost:5000/img/products/" + displayImg
+                            "https://e-commerce-project-1-tvev.onrender.com/img/products/" +
+                            displayImg
                           }
                           style={{
                             width: "100%",
@@ -200,7 +204,7 @@ export default function ProductHolder({ product }) {
                                         height: "100%",
                                       }}
                                       src={
-                                        "http://localhost:5000/img/products/" +
+                                        "https://e-commerce-project-1-tvev.onrender.com/img/products/" +
                                         img
                                       }
                                       alt=""
@@ -230,7 +234,7 @@ export default function ProductHolder({ product }) {
                                         height: "100%",
                                       }}
                                       src={
-                                        "http://localhost:5000/img/products/" +
+                                        "https://e-commerce-project-1-tvev.onrender.com/img/products/" +
                                         img
                                       }
                                       alt=""

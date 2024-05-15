@@ -16,13 +16,13 @@ import { AuthContext } from "../../context/Auth";
 import toast from "react-hot-toast";
 
 export default function Cart() {
-  const { token } = useContext(AuthContext);
+  const { token, setCartNums } = useContext(AuthContext);
   const [cartProduct, setCartProduct] = useState(null);
   const navigate = useNavigate();
   async function getCart() {
     try {
       const { data: cart } = await axios.get(
-        "http://localhost:5000/api/v1/carts",
+        "https://e-commerce-project-1-tvev.onrender.com/api/v1/carts",
         {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token"),
@@ -31,7 +31,6 @@ export default function Cart() {
       );
 
       setCartProduct(cart?.data.cart);
-      console.log(cart?.data.cart.cartItems);
     } catch (e) {
       console.log(e);
     }
@@ -40,31 +39,10 @@ export default function Cart() {
     getCart();
   }, []);
 
-  async function addToCart(id) {
-    try {
-      const { data } = await axios.post(
-        `http://localhost:5000/api/v1/carts`,
-        {
-          productId: id,
-        },
-        {
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-        }
-      );
-      console.log(data);
-
-      toast.success("Delete Done");
-    } catch (error) {
-      toast.error(error.response.data.message);
-    }
-  }
   async function DeleteFromCart(id) {
-    console.log(id);
     try {
       const { data } = await axios.delete(
-        `http://localhost:5000/api/v1/carts/${id}`,
+        `https://e-commerce-project-1-tvev.onrender.com/api/v1/carts/${id}`,
         // {
         //   productId: id,
         // },
@@ -75,17 +53,16 @@ export default function Cart() {
         }
       );
       getCart();
-
+      setCartNums(data?.numOfCartItems);
       toast.success("Remove done");
     } catch (error) {
       toast.error(error.response.data.message);
     }
   }
   async function updateQuntity(id, quantity) {
-    console.log(id);
     try {
       const { data } = await axios.patch(
-        `http://localhost:5000/api/v1/carts/${id}`,
+        `https://e-commerce-project-1-tvev.onrender.com/api/v1/carts/${id}`,
         {
           quantity: quantity,
         },
@@ -151,7 +128,7 @@ export default function Cart() {
                             className="img-fluid "
                             style={{ width: "125px" }}
                             src={
-                              "http://localhost:5000/img/products/" +
+                              "https://e-commerce-project-1-tvev.onrender.com/img/products/" +
                               product.product.images[0]
                             }
                             alt=""

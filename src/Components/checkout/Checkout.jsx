@@ -13,10 +13,9 @@ export default function Checkout() {
   const navigate = useNavigate();
 
   async function checkOurFunc(values) {
-    console.log(values);
     try {
       const { data } = await axios.post(
-        `http://localhost:5000/api/v1/orders/checkout-session/${cartDetails._id}`,
+        `https://e-commerce-project-1-tvev.onrender.com/api/v1/orders/checkout-session/${cartDetails._id}`,
         values,
         {
           headers: {
@@ -25,7 +24,6 @@ export default function Checkout() {
         }
       );
 
-      console.log(data?.session.url);
       window.open(data?.session.url, "_blank");
     } catch (e) {
       console.log(e);
@@ -53,7 +51,7 @@ export default function Checkout() {
   async function getCart() {
     try {
       const { data: cart } = await axios.get(
-        "http://localhost:5000/api/v1/carts",
+        "https://e-commerce-project-1-tvev.onrender.com/api/v1/carts",
         {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token"),
@@ -63,7 +61,6 @@ export default function Checkout() {
 
       setCartProduct(cart?.data.cart.cartItems);
       setCartDetails(cart?.data.cart);
-      console.log(cart?.data.cart._id);
     } catch (e) {
       console.log(e);
     }

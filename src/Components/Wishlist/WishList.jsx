@@ -16,14 +16,14 @@ import { AuthContext } from "../../context/Auth";
 import toast from "react-hot-toast";
 
 export default function WishList() {
-  const { token } = useContext(AuthContext);
+  const { token, setWishNums, setCartNums } = useContext(AuthContext);
   const [wishListProducts, setWishListProducts] = useState(null);
   const navigate = useNavigate();
 
   async function getWishlist() {
     try {
       const { data: wishList } = await axios.get(
-        "http://localhost:5000/api/v1/wishlists",
+        "https://e-commerce-project-1-tvev.onrender.com/api/v1/wishlists",
         {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token"),
@@ -42,7 +42,7 @@ export default function WishList() {
   async function addToCart(id) {
     try {
       const { data } = await axios.post(
-        `http://localhost:5000/api/v1/carts`,
+        `https://e-commerce-project-1-tvev.onrender.com/api/v1/carts`,
         {
           productId: id,
         },
@@ -52,8 +52,9 @@ export default function WishList() {
           },
         }
       );
-
-      toast.success("Delete Done");
+      DeletefromWishList(id);
+      setCartNums(data?.data.cart.cartItems.length);
+      toast.success("Add to Your Cart");
     } catch (error) {
       toast.error(error.response.data.message);
     }
@@ -61,20 +62,18 @@ export default function WishList() {
   async function DeletefromWishList(id) {
     try {
       const { data } = await axios.delete(
-        `http://localhost:5000/api/v1/wishlists/${id}`,
-        // {
-        //   productId: id,
-        // },
+        `https://e-commerce-project-1-tvev.onrender.com/api/v1/wishlists/${id}`,
+
         {
           headers: {
             Authorization: "Bearer " + token,
           },
         }
       );
-      console.log(data);
+      setWishNums(data?.results);
       getWishlist();
 
-      toast.success("Add to Your Cart");
+      toast.success("Remove Done..");
     } catch (error) {
       toast.error(error.response.data.message);
     }
@@ -127,7 +126,7 @@ export default function WishList() {
                             className="img-fluid "
                             style={{ width: "125px" }}
                             src={
-                              "http://localhost:5000/img/products/" +
+                              "https://e-commerce-project-1-tvev.onrender.com/img/products/" +
                               product.images[0]
                             }
                             alt=""

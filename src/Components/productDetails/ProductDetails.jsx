@@ -11,12 +11,12 @@ export default function ProductDetails() {
   const [displayImg, setDisplayImg] = useState(null);
   const [counter, setCounter] = useState(1);
   const [loading, setLoading] = useState(true); // State for loading spinner
-  const { token } = useContext(AuthContext);
+  const { token, setWishNums, setCartNums } = useContext(AuthContext);
 
   async function getCart() {
     try {
       const { data } = await axios.get(
-        `http://localhost:5000/api/v1/products/${id}`
+        `https://e-commerce-project-1-tvev.onrender.com/api/v1/products/${id}`
       );
 
       setProduct(data?.data.date);
@@ -35,7 +35,7 @@ export default function ProductDetails() {
   async function addToWishList(id) {
     try {
       const { data } = await axios.post(
-        `http://localhost:5000/api/v1/wishlists`,
+        `https://e-commerce-project-1-tvev.onrender.com/api/v1/wishlists`,
         {
           productId: id,
         },
@@ -45,8 +45,7 @@ export default function ProductDetails() {
           },
         }
       );
-      console.log(data);
-
+      setWishNums(data?.data.length);
       toast.success("Add to Your WishList");
     } catch (error) {
       toast.error(error.response.data.message);
@@ -54,10 +53,9 @@ export default function ProductDetails() {
   }
 
   async function addToCart(id) {
-    console.log(id);
     try {
       const { data } = await axios.post(
-        `http://localhost:5000/api/v1/carts`,
+        `https://e-commerce-project-1-tvev.onrender.com/api/v1/carts`,
         {
           productId: id,
         },
@@ -67,8 +65,7 @@ export default function ProductDetails() {
           },
         }
       );
-      console.log(data);
-
+      setCartNums(data?.data.cart.cartItems.length);
       toast.success("Add to Your Cart");
     } catch (error) {
       toast.error(error.response.data.message);
@@ -102,7 +99,10 @@ export default function ProductDetails() {
                   style={{ marginRight: "70px" }}
                 >
                   <img
-                    src={"http://localhost:5000/img/products/" + displayImg}
+                    src={
+                      "https://e-commerce-project-1-tvev.onrender.com/img/products/" +
+                      displayImg
+                    }
                     style={{
                       width: "100%",
                       objectFit: "cover",
@@ -142,7 +142,8 @@ export default function ProductDetails() {
                                   height: "100%",
                                 }}
                                 src={
-                                  "http://localhost:5000/img/products/" + img
+                                  "https://e-commerce-project-1-tvev.onrender.com/img/products/" +
+                                  img
                                 }
                                 alt=""
                               />
@@ -171,7 +172,8 @@ export default function ProductDetails() {
                                   height: "100%",
                                 }}
                                 src={
-                                  "http://localhost:5000/img/products/" + img
+                                  "https://e-commerce-project-1-tvev.onrender.com/img/products/" +
+                                  img
                                 }
                                 alt=""
                               />

@@ -16,7 +16,10 @@ function Sigin() {
   async function submitLogin(values) {
     setLoading(true);
     const { data } = await axios
-      .post("http://localhost:5000/api/v1/users/login", values)
+      .post(
+        "https://e-commerce-project-1-tvev.onrender.com/api/v1/users/login",
+        values
+      )
       .catch(function (error) {
         setsuccessMsgMsg(null);
         setLoading(false);

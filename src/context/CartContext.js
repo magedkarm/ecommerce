@@ -8,9 +8,9 @@ export function CartContextProvider({ children }) {
   let [cartNums, setCartNums] = useState(0);
   let [cartId, setCartId] = useState(null);
   const { token } = useContext(AuthContext);
-  console.log("hi from context", token);
+
   let headers = { AUTHORIZATION: "Bearer " + token };
-  let BaseUrl = "http://localhost:5000";
+  let BaseUrl = "https://e-commerce-project-1-tvev.onrender.com";
   //add to cart
 
   function addCart(productId) {

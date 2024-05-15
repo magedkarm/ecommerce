@@ -7,12 +7,16 @@ import ProductHolder from "../ReusableComp/ProductHolder/ProductHolder";
 
 export default function TabBar() {
   function getTopRated() {
-    return axios.get("http://localhost:5000/api/v1/products?limit=9");
+    return axios.get(
+      "https://e-commerce-project-1-tvev.onrender.com/api/v1/products?limit=9"
+    );
   }
   const { data: TopRated } = useQuery("topRated", getTopRated);
 
   function bestSelling() {
-    return axios.get("http://localhost:5000/api/v1/products?limit=9&sort=name");
+    return axios.get(
+      "https://e-commerce-project-1-tvev.onrender.com/api/v1/products?limit=9&sort=name"
+    );
   }
   const { data: BestSelling } = useQuery("bestSelling", bestSelling);
 

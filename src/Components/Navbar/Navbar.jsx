@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../../Assets/Images/logo-black.svg";
-
+import style from "../Navbar/Navbar.module.css";
 import { AuthContext } from "../../context/Auth";
 import { CiHeart } from "react-icons/ci";
 export default function Navbar() {
-  const { token, setToken } = useContext(AuthContext);
+  const { token, setToken, cartNums, wishNums } = useContext(AuthContext);
   const navigate = useNavigate();
 
   function logout() {
@@ -89,20 +89,35 @@ export default function Navbar() {
                         </span>
                       </li>
 
-                      <li className="nav-item ">
+                      <li
+                        className="nav-item pe-4
+                      "
+                      >
                         <NavLink className="nav-link " to="/cart">
                           <i
                             style={{ fontSize: "25px" }}
-                            className="fa-solid fa-cart-shopping"
-                          ></i>
+                            className="fa-solid fa-cart-shopping position-relative"
+                          >
+                            {cartNums ? (
+                              <span className={style.CartAndWishCounter}>
+                                {cartNums}
+                              </span>
+                            ) : null}
+                          </i>
                         </NavLink>
                       </li>
                       <li className="nav-item ">
                         <NavLink className="nav-link " to="/wishlist">
                           <i
                             style={{ fontSize: "25px" }}
-                            className="fa-regular fa-heart"
-                          ></i>
+                            className="fa-regular fa-heart position-relative"
+                          >
+                            {wishNums ? (
+                              <span className={style.CartAndWishCounter}>
+                                {wishNums}
+                              </span>
+                            ) : null}
+                          </i>
                         </NavLink>
                       </li>
                     </>
