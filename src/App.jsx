@@ -25,9 +25,9 @@ const router = createBrowserRouter([
       {
         path: "shop",
         element: (
-          <ProtectedRoute>
+      
             <Shop />
-          </ProtectedRoute>
+        
         ),
       },
       {
