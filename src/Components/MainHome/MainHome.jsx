@@ -9,7 +9,7 @@ export default function MainHome() {
           <div className="col-xl-6 col-lg-6">
             <div className="mainConten z-3 position-relative">
               <span className={style.mainTitle}>
-                Bset Ear
+                Best Ear
                 <br />
                 Headphones
               </span>
