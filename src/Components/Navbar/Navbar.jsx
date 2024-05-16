@@ -61,8 +61,8 @@ export default function Navbar() {
                       </NavLink>
                     </li>
                     <li className="nav-item">
-                      <NavLink className="nav-link" to="/#">
-                        Contact us
+                      <NavLink className="nav-link" to="/orders">
+                        Orders
                       </NavLink>
                     </li>
                   </ul>
